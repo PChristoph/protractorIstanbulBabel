@@ -10,6 +10,12 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.ts']
   },
+  devServer: {
+    // static: {
+    //   directory: path.join(__dirname, 'dist'),
+    // },
+  },
+  devtool: 'source-map',
   module: {
     rules: [
       {
