@@ -1,5 +1,12 @@
 const path = require('path');
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+__webpack_base_uri__ = 'http://localhost:8080';
 console.log('WEBPACK.CONFIG GELADEN. path:', path)
+
+const htmlPlugin = new HtmlWebPackPlugin({
+  template: "./src/index.html",
+  filename: "./index.html"
+});
 
 module.exports = {
   entry: { main: './src/main.ts' },
@@ -14,7 +21,9 @@ module.exports = {
     // static: {
     //   directory: path.join(__dirname, 'dist'),
     // },
+    disableHostCheck: true
   },
+  plugins: [htmlPlugin],
   devtool: 'source-map',
   module: {
     rules: [
